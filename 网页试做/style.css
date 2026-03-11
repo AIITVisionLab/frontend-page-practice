@@ -1,0 +1,328 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Microsoft YaHei", sans-serif;
+  background: #0b0a14;
+  color: #f0e6d2;
+  line-height: 1.8;
+  scroll-behavior: smooth; /* 全局平滑滚动 */
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 头部 */
+.header {
+  background: rgba(15, 12, 25, 0.95);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  padding: 18px 0;
+  border-bottom: 1px solid #332b40;
+
+  transition: background 0.3s ease; /* 背景过渡 */
+}
+
+.logo {
+  font-size: 26px;
+  color: #ffd700;
+  text-align: center;
+}
+
+.nav {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.nav a {
+  color: #f0e6d2;
+  text-decoration: none;
+  margin: 0 16px;
+  font-size: 16px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* 导航激活态和hover态 */
+.nav a:hover, .nav a.active {
+  color: #ffd700;
+}
+
+.nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #ffd700;
+  border-radius: 1px;
+}
+
+/* 横幅 */
+.banner {
+  height: 500px;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)),
+    url("./retouch_2026030522092392.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 横幅文字轻微动画 */
+.banner-inner h2 {
+  font-size: 46px;
+  color: #ffea00;
+  margin-bottom: 10px;
+  animation: fadeInUp 1s ease;
+}
+
+.banner-inner p {
+  font-size: 22px;
+  margin-bottom: 8px;
+  font-family: "SimSun","宋体",serif;
+  animation: fadeInUp 1.2s ease;
+}
+
+.banner-inner span {
+  opacity: 0.7;
+  font-size: 16px;
+  animation: fadeInUp 1.4s ease;
+}
+
+/* 板块通用 */
+.section {
+  padding: 70px 0;
+  scroll-margin-top: 80px; /* 滚动锚点偏移，避免被导航遮挡 */
+}
+
+.section-title {
+  text-align: center;
+  font-size: 30px;
+  color: #ffa200;
+  margin-bottom: 45px;
+  position: relative;
+}
+
+/* 标题装饰线 */
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: #ffa200;
+  border-radius: 2px;
+}
+
+/* 文物介绍 */
+.relic-section {
+  background: #310000;
+}
+
+.card-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.card {
+  background: #360902;
+  width: 340px;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #7c2e00;
+  transition: all 0.3s ease; /* 卡片过渡动画 */
+}
+
+.card h3 {
+  color: #ffea00;
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-family: "KaiTi","楷体",cursive;
+}
+
+.card p {
+  margin-bottom: 12px;
+  opacity: 0.9;
+  font-family: "SimSun","宋体",serif;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #ffea00;
+  color: #111;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #ffed4d;
+  transform: translateY(-2px);
+}
+
+/* 禁用状态 */
+.btn.disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  opacity: 0.7;
+}
+
+/* 剧情 */
+.story-section {
+  background: #0b0a14;
+  text-align: center;
+}
+
+.story-content {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 2;
+}
+
+/* 下载 */
+.download-section {
+  background: #0f0c19;
+  text-align: center;
+}
+
+.download-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-big {
+  padding: 16px 36px;
+  font-size: 18px;
+}
+
+/* 底部 */
+.footer {
+  background: #310000;
+  padding: 35px 0;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.6;
+  margin-top: 20px;
+}
+
+/* 点击提示样式 */
+.click-tip {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.8);
+  color: #ffea00;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+/* 动画定义 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+  .banner {
+    height: 350px;
+  }
+  
+  .banner-inner h2 {
+    font-size: 32px;
+  }
+  
+  .banner-inner p {
+    font-size: 18px;
+  }
+  
+  .section-title {
+    font-size: 26px;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 340px;
+  }
+  
+  .nav a {
+    margin: 0 8px;
+    font-size: 14px;
+  }
+  
+  .btn-big {
+    padding: 12px 28px;
+    font-size: 16px;
+  }
+  
+  .section {
+    padding: 50px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    height: 280px;
+  }
+  
+  .banner-inner h2 {
+    font-size: 26px;
+  }
+  
+  .logo {
+    font-size: 22px;
+  }
+  
+  .nav {
+    margin-top: 8px;
+  }
+  
+  .card {
+    padding: 20px;
+  }
+}
